@@ -1,4 +1,4 @@
-/* IMPORTANT: Multiple classes and nested static classes are supported */
+package tanmay.others.solutions;/* IMPORTANT: Multiple classes and nested static classes are supported */
 
 
 import java.io.BufferedReader;

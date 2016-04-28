@@ -1,3 +1,5 @@
+package tanmay.graph.solutions;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,7 +10,7 @@ import java.util.List;
 /**
  * Created by tanmaymehra on 4/17/16.
  */
-public class Test {
+public class NodeSum {
 
 
     public static void main(String[] args) throws IOException {

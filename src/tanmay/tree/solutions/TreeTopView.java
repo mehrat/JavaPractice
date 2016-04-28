@@ -1,3 +1,7 @@
+package tanmay.tree.solutions;
+
+import tanmay.tree.solutions.BSTNode;
+
 /**
  * Created by tanmaymehra on 4/28/16.
  */
