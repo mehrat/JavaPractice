@@ -3,32 +3,9 @@ import java.util.Stack;
 /**
  * Created by tanmaymehra on 4/24/16.
  */
-public class KthSmallestBST {
+public class KthSmallestBST extends BSTNode {
 
-    public static BSTNode insertBST(int value, BSTNode root) {
-        BSTNode node = new BSTNode(value);
-        BSTNode temproot = root;
-        boolean inserted = false;
-        while (!inserted) {
 
-            if (value <= temproot.value) {
-                if (temproot.left == null) {
-                    temproot.left = node;
-                    inserted = true;
-                } else {
-                    temproot = temproot.left;
-                }
-            } else {
-                if (temproot.right == null) {
-                    temproot.right = node;
-                    inserted = true;
-                } else {
-                    temproot = temproot.right;
-                }
-            }
-        }
-        return root;
-    }
 
     public static void main(String[] args) {
 
@@ -77,7 +54,36 @@ class BSTNode {
     BSTNode left;
     BSTNode right;
 
+    BSTNode(){
+
+    }
+
     BSTNode(int val) {
         this.value = val;
+    }
+
+    public static BSTNode insertBST(int value, BSTNode root) {
+        BSTNode node = new BSTNode(value);
+        BSTNode temproot = root;
+        boolean inserted = false;
+        while (!inserted) {
+
+            if (value <= temproot.value) {
+                if (temproot.left == null) {
+                    temproot.left = node;
+                    inserted = true;
+                } else {
+                    temproot = temproot.left;
+                }
+            } else {
+                if (temproot.right == null) {
+                    temproot.right = node;
+                    inserted = true;
+                } else {
+                    temproot = temproot.right;
+                }
+            }
+        }
+        return root;
     }
 }
