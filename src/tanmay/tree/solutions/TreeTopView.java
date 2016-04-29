@@ -1,46 +1,33 @@
 package tanmay.tree.solutions;
 
-import tanmay.tree.solutions.BSTNode;
-
 /**
  * Created by tanmaymehra on 4/28/16.
  */
-public class TreeTopView extends BSTNode {
+public class TreeTopView extends Node {
     public static void main(String[] args) {
 
-        BSTNode root = new BSTNode(20);
-        insertBST(8, root);
-        insertBST(4, root);
-        insertBST(12, root);
-        insertBST(10, root);
-        insertBST(14, root);
-        insertBST(22, root);
+       Node root = buildATree();
 
         leftTopView(root);
         rightTopView(root.right);
-
-
-
     }
 
-    private static void rightTopView(BSTNode root) {
+
+    private static void rightTopView(Node root) {
 
         if(root == null){
             return;
         }
-        System.out.println(root.value);
+        System.out.println(root.data);
         rightTopView(root.right);
-
     }
 
-    private static void leftTopView(BSTNode root) {
+    private static void leftTopView(Node root) {
 
         if(root == null){
             return;
         }
         leftTopView(root.left);
-        System.out.println(root.value);
+        System.out.println(root.data);
     }
-
-
 }

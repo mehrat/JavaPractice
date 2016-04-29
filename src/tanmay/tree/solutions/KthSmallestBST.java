@@ -3,13 +3,13 @@ package tanmay.tree.solutions;
 /**
  * Created by tanmaymehra on 4/24/16.
  */
-public class KthSmallestBST extends BSTNode {
+public class KthSmallestBST extends Node {
 
 
 
     public static void main(String[] args) {
 
-        BSTNode root = new BSTNode(20);
+        Node root = new Node(20);
         insertBST(8, root);
         insertBST(4, root);
         insertBST(12, root);
@@ -22,53 +22,49 @@ public class KthSmallestBST extends BSTNode {
         }
     }
 
-    private static int findKthSmallest(BSTNode root, int k) {
+    private static int findKthSmallest(Node root, int k) {
 
         if (root == null) {
             return 0;
         }
         int left_no = findLeftSubTreeLen(root.left);
         if (left_no == k - 1) {
-            return root.value;
+            return root.data;
         } else if (left_no > k - 1) {
             return findKthSmallest(root.left, k);
         } else {
             return findKthSmallest(root.right, k);
         }
-
     }
 
-    private static int findLeftSubTreeLen(BSTNode root) {
+    private static int findLeftSubTreeLen(Node root) {
         if (root == null) {
             return 0;
         }
 
         return 1 + findLeftSubTreeLen(root.left) + findLeftSubTreeLen(root.right);
     }
-
-
 }
 
-class BSTNode {
-    int value;
-    BSTNode left;
-    BSTNode right;
+class Node {
+    int data;
+    Node left;
+    Node right;
 
-    BSTNode(){
-
+    Node(){
     }
 
-    BSTNode(int val) {
-        this.value = val;
+    Node(int val) {
+        this.data = val;
     }
 
-    public static BSTNode insertBST(int value, BSTNode root) {
-        BSTNode node = new BSTNode(value);
-        BSTNode temproot = root;
+    public static Node insertBST(int value, Node root) {
+        Node node = new Node(value);
+        Node temproot = root;
         boolean inserted = false;
         while (!inserted) {
 
-            if (value <= temproot.value) {
+            if (value <= temproot.data) {
                 if (temproot.left == null) {
                     temproot.left = node;
                     inserted = true;
@@ -84,6 +80,17 @@ class BSTNode {
                 }
             }
         }
+        return root;
+    }
+    public static Node buildATree() {
+
+        Node root = new Node(20);
+        insertBST(8, root);
+        insertBST(4, root);
+        insertBST(12, root);
+        insertBST(10, root);
+        insertBST(14, root);
+        insertBST(22, root);
         return root;
     }
 }
