@@ -83,23 +83,25 @@ public class Solution {
         }
         field = l.get(0).size();
         record = l.size()-1;
+
+        int maxSize = -1;
         for(int i = 1; i< l.size();i++){
-            List ll = l.get(i);
-            if(ll.size() > field){
-                field = ll.size();
-            }
-            for(int j = 0; j< ll.size();j++){
-                if(ll.get(j)==""){
-                    empty++;
-                }
+            if(maxSize< l.get(i).size()) {
+                maxSize = l.get(i).size();
             }
         }
-        int k = field - l.get(0).size();
-        if(k > 0){
-            lastF = l.get(0).get(l.size()-1) + "_"+k;
+        field = maxSize;
+        for(int i = 1; i< l.size();i++){
+            int diff = maxSize - l.get(i).size();
+            empty += diff;
+        }
+        int fieldIndx = maxSize - l.get(0).size();
+        if(fieldIndx !=0) {
+            lastF = l.get(0).get(l.get(0).size() - 1) + "_"+ fieldIndx;
         }else{
-            lastF = l.get(0).get(l.size()-1);
+            lastF = l.get(0).get(l.get(0).size() - 1);
         }
+
         System.out.println(record+":"+field+":"+empty+":"+lastF);
     }
 
